@@ -1,0 +1,136 @@
+{
+  "intent_greeting": {
+    "utterances": [
+      "hello",
+      "jarvis",
+      "hello jarvis",
+      "hey jarvis",
+      "wake up jarvis",
+      "wake up",
+      "are you there",
+      "activate"
+    ],
+    "response": [
+      "Welcome back",
+      "How may i help you?",
+      "Always at your service",
+      "Hello, thanks for asking, How may i help you?",
+      "Good to see you again",
+      "Hi there, How may i help you?"
+    ]
+  },
+  "intent_exit": {
+    "utterances": [
+      "exit now",
+      "quite now",
+      "quite",
+      "goodbye",
+      "see you later",
+      "Bye"
+    ],
+    "response": [
+      "Ok Sir Thank you for using me.....",
+      "Thanks for using me Sir.. Have a good day..",
+      "see you",
+      "Have a nice day",
+      "Bye! come back again soon"
+    ]
+  },
+  "intent_sleep": {
+    "utterances": [
+      "sleep",
+      "sleep now",
+      "you can sleep now",
+      "you need a break"
+    ],
+    "response": [
+      "okay sir, i am going to sleep now you can call me anytime"
+    ]
+  },
+  "intent_application": {
+    "utterances": [
+      "open",
+      "run",
+      "launch",
+      "execute",
+      "start"
+    ],
+    "applications":{
+      "desktop": "desktop",
+      "downloads": "Downloads",
+      "documents": "Documents",
+      "music": "Music",
+      "pictures": "Pictures",
+      "video": "Videos",
+      "wordpad": "Wordpad",
+      "calculator": "calc",
+      "chrome": "chrome",
+      "firefox": "firefox",
+      "google": "http://www.google.com",
+      "facebook": "https://facebook.com",
+      "instagram": "https://instagram.com",
+      "twitter": "https://twitter.com",
+      "whatsapp": "http://web.whatsapp.com/"
+    },
+    "response": [
+      "opening",
+      "done"
+    ]
+  },
+  "intent_daily": {
+    "utterances": [
+      "today",
+      "time",
+      "day",
+      "temperature",
+      "weather",
+      "what is",
+      "what's",
+      "what time",
+      "what weather",
+      "what temperature",
+      "what day",
+      "weather today",
+      "temperature today",
+      "time today",
+      "day today",
+      "today weather",
+      "today temperature",
+      "today day",
+      "today time",
+      "how weather today"
+    ],
+    "common_activities":{
+      "temperature": "temperature",
+      "weather": "weather",
+      "day": "day",
+      "time": "time"
+    },
+    "response": [
+      "checking",
+      "please wait"
+    ]
+  },
+  "intent_search_google": {
+    "utterances": [
+      "ok google",
+      "search on google"
+    ],
+    "response": [
+      "searching on google",
+      "searching please wait",
+      "getting results from google please wait"
+    ]
+  },
+  "intent_None" : {
+    "utterances": [
+      "none",
+      "None"
+    ],
+    "response": [
+      "say again",
+      "i didn't understand",
+      "not understand"
+    ]
+  }
+}

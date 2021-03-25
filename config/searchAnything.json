@@ -1,0 +1,23 @@
+{
+  "intent_search_google": {
+    "utterances": [
+      "how",
+      "what",
+      "who",
+      "why",
+      "whom",
+      "how to",
+      "how many",
+      "when",
+      "how much",
+      "whose",
+      "search",
+      "search on"
+    ],
+    "response": [
+      "searching on google",
+      "searching please wait",
+      "getting results from google please wait"
+    ]
+  }
+}
