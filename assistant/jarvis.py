@@ -1,3 +1,5 @@
+import os
+
 import speech_recognition as sr
 
 from intents.managementsystem import ManagementSystem
@@ -32,13 +34,14 @@ class Jarvis(threading.Thread):
 
         # using the check_output() for having the network term retrival
         devices = subprocess.check_output(['netsh', 'wlan', 'show', 'network'])
-
         # decode it to strings
         devices = devices.decode('ascii')
         devices = devices.replace("\r", "")
 
         # displaying the information
         print(devices)
+        self.response_speak("Restarting System, Please Turn on Your Internet Connection First........")
+        self.run()
 
     def read_voice_input(self):
         with sr.Microphone() as source:
@@ -162,7 +165,7 @@ class Jarvis(threading.Thread):
 
             except Exception:
                 self.response_speak("NO INTERNET CONNECTION detect - jarvis, needs active internet connection")
-                self.response_speak("Connect to Internet there are few network connections i found ")
+                self.response_speak("Connect to Internet, there are few network connections i found ")
                 self.check_wifi_status()
 
     def welcome(self):
