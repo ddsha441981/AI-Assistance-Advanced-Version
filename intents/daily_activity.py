@@ -91,7 +91,7 @@ class DailyActivity:
                 pass
             else:
                 key = self.command.split(' ')[1].strip()
-                print('kkkkkkkkkkkkkkkkkkkkkkkkkkk', key + " command is " + self.command)
+                print('Key is', key + " command is " + self.command)
                 # Method 2
                 #     for activity, path in self.common_activities.items():
                 #         print("in for activity is " , activity , "path is : " , path)

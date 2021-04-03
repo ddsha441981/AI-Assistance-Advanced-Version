@@ -136,7 +136,7 @@ class ManagementSystem:
                 pass
             else:
                 key = self.command.split(' ')[1].strip()
-                print('kkkkkkkkkkkkkkkkkkkkkkkkkkk', key + " command is " + self.command)
+                print('Key is ', key + " command is " + self.command)
 
                 for sysactivity in self.system_activities:
                     print("in for sysactivity is ", sysactivity, "path is : ", sysactivity)

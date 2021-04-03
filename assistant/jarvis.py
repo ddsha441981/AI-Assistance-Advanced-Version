@@ -97,7 +97,7 @@ class Jarvis(threading.Thread):
                     else:
                         self.logger.info("None.............. say again")
                         # self.read_voice_input()
-                        print(key + "  hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh  ", query)
+                        print(key + "  Key and query   ", query)
 
             if key == 'intent_application':
                 apps = self.config[key]['applications']
