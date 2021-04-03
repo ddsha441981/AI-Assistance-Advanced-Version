@@ -5,7 +5,8 @@ class SearchAnything:
         self.command = command
 
     def searching_on_google(self):
-        voicenote = self.command.split("ok google")[1].strip()
-        webbrowser.open("https://www.google.com/search?q={}".format(voicenote))
+        searchQuery = self.command.split("ok google")[1].strip()
+        webbrowser.open("https://www.google.com/search?q={}".format(searchQuery))
+
 
 

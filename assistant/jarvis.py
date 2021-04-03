@@ -1,7 +1,6 @@
-import webbrowser
-
 import speech_recognition as sr
 
+from intents.managementsystem import ManagementSystem
 from intents.searchanything import SearchAnything
 from utils.utils import Utils
 from intents.application_list import Application
@@ -12,6 +11,7 @@ import datetime
 import sys
 import time
 import urllib
+import subprocess
 from playsound import playsound
 
 
@@ -28,13 +28,17 @@ class Jarvis(threading.Thread):
         playsound('H:\\Pycharm Code\\AI-Assistance-Advanced-Version\\audio\\jarvis_introdation.wav')
         time.sleep(1)
 
-    # Checking Internet
-    def connect(host='http://google.com'):
-        try:
-            urllib.request.urlopen(host)  # Python 3.x
-            return True
-        except:
-            return False
+    def check_wifi_status(self):
+
+        # using the check_output() for having the network term retrival
+        devices = subprocess.check_output(['netsh', 'wlan', 'show', 'network'])
+
+        # decode it to strings
+        devices = devices.decode('ascii')
+        devices = devices.replace("\r", "")
+
+        # displaying the information
+        print(devices)
 
     def read_voice_input(self):
         with sr.Microphone() as source:
@@ -101,6 +105,16 @@ class Jarvis(threading.Thread):
                 Application(logger=self.logger, response=response, command=query, applications=apps,
                             os_name=self.os_name).launch()
 
+
+            elif key == 'intent_sysdata':
+                common_system_data = self.config[key]['systemize']
+                # speak here
+                response = Utils.choose_random(self.config[key]['response'])
+
+                # self.response_speak(response)
+                ManagementSystem(logger=self.logger, response=response, command=query,
+                                 system_activities=common_system_data, os_name=self.os_name).checking_system_info()
+
             elif key == 'intent_exit':
                 response = Utils.choose_random(self.config[key]['response'])
                 self.response_speak(response)
@@ -124,51 +138,58 @@ class Jarvis(threading.Thread):
                 print("query ******************************", query)
                 response = Utils.choose_random(self.config[key]['response'])
                 self.response_speak(response)
-                SearchAnything(logger=self.logger,command = query).searching_on_google()
+                SearchAnything(logger=self.logger, command=query).searching_on_google()
                 print(response)
 
             elif key == 'intent_None':
                 response = Utils.choose_random(self.config[key]['response'])
-                self.response_speak(response)
+                # self.response_speak(response)
+                self.logger.info(response)
                 print(response)
                 continue
 
             else:
                 print("In else time part", datetime.datetime.today())
 
-    # Checking Internet first
-    if connect():
-        print('checking Internet connection............')
-        print('Internet Connection is successfully established.....')
+    def run(self):
+        host = 'http://google.com'
+        if host:
+            try:
+                urllib.request.urlopen(host)  # Python 3.x
+                self.response_speak('checking Internet connection............')
+                self.response_speak('Internet Connection is successfully established.....')
+                self.welcome()
 
-        # Thread
-        def run(self):
-            self.logger.info('Running thread.........')
-            # Checking System First
-            # self.checking_system()
-            while True:
-                print("Main Loop")
-                query = self.takeCommand()
-                key = ''
-                for key in self.config:
-                    if query == 'None' or query == 'none':
-                        print("Query is none " + query)
-                        continue
-                    else:
-                        matched = self.utils.match_utterances(query, self.config[key]['utterances'])
-                        if matched:
-                            self.logger.info('Executed intent : ' + key)
-                            break
-                        # else:
-                        #     self.logger.info("None.............. say again")
-                        #     self.read_voice_input()
+            except Exception:
+                self.response_speak("NO INTERNET CONNECTION detect - jarvis, needs active internet connection")
+                self.response_speak("Connect to Internet there are few network connections i found ")
+                self.check_wifi_status()
 
-                if key == 'intent_greeting':
-                    response = Utils.choose_random(self.config[key]['response'])
-                    # For Greeting wishing
-                    # Greeting.wish(self)
-                    self.response_speak(response)
-                    print(response)
-                    self.taskExecution()
-    else:
-        print('no internet Connection!!!, Connect Internet first.... ')
+    def welcome(self):
+        self.logger.info('Running thread.........')
+        # Checking System First
+        # self.checking_system()
+        while True:
+            print("Main Loop")
+            query = self.takeCommand()
+            key = ''
+            for key in self.config:
+                if query == 'None' or query == 'none':
+                    print("Query is none " + query)
+                    continue
+                else:
+                    matched = self.utils.match_utterances(query, self.config[key]['utterances'])
+                    if matched:
+                        self.logger.info('Executed intent : ' + key)
+                        break
+                    # else:
+                    #     self.logger.info("None.............. say again")
+                    #     self.read_voice_input()
+
+            if key == 'intent_greeting':
+                response = Utils.choose_random(self.config[key]['response'])
+                # For Greeting wishing
+                Greeting.wish(self)
+                self.response_speak(response)
+                print(response)
+                self.taskExecution()

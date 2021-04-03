@@ -67,6 +67,7 @@
       "chrome": "chrome",
       "firefox": "firefox",
       "google": "http://www.google.com",
+      "youtube": "http://www.youtube.com",
       "facebook": "https://facebook.com",
       "instagram": "https://instagram.com",
       "twitter": "https://twitter.com",
@@ -77,6 +78,41 @@
       "done"
     ]
   },
+
+  "intent_sysdata": {
+    "utterances": [
+      "system shutdown",
+      "restart my system",
+      "system restart",
+      "shutdown my system",
+      "shutdown",
+      "restart",
+      "restart machine",
+      "shutdown machine",
+      "sleep my system",
+      "sleep",
+      "system sleep",
+      "check battery",
+      "total battery",
+      "battery",
+      "remaining battery",
+      "total cpu",
+      "check cpu",
+      "cpu"
+    ],
+    "systemize":{
+      "shutdown": "shutdown",
+      "restart": "restart",
+      "sleep": "sleep",
+      "cpu": "cpu",
+      "battery": "battery"
+    },
+    "response": [
+      "processing",
+      "your system is on the way please wait"
+    ]
+  },
+
   "intent_daily": {
     "utterances": [
       "today",
