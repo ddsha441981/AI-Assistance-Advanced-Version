@@ -171,7 +171,7 @@ class Jarvis(threading.Thread):
     def welcome(self):
         self.logger.info('Running thread.........')
         # Checking System First
-        # self.checking_system()
+        self.checking_system()
         while True:
             print("Main Loop")
             query = self.takeCommand()
