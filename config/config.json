@@ -150,12 +150,28 @@
   "intent_search_google": {
     "utterances": [
       "ok google",
-      "search on google"
+      "play youtube video",
+      "search wikipedia"
     ],
+    "online_content":{
+      "google": "google",
+      "youtube": "youtube",
+      "wikipedia": "wikipedia"
+    },
     "response": [
       "searching on google",
       "searching please wait",
       "getting results from google please wait"
+    ]
+  },
+  "intent_whatsapp": {
+    "utterances": [
+      "send whatsapp message"
+    ],
+    "response": [
+      "sending",
+      "it will take some time please wait",
+      "ok i will"
     ]
   },
   "intent_None" : {

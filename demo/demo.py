@@ -158,3 +158,7 @@
 #
 # # displaying the information
 # print(devices)
+
+import pywhatkit as kit
+
+kit.playonyt("superhero")

@@ -1,23 +1,10 @@
 {
-  "intent_search_google": {
+  "intent_whatsapp": {
     "utterances": [
-      "how",
-      "what",
-      "who",
-      "why",
-      "whom",
-      "how to",
-      "how many",
-      "when",
-      "how much",
-      "whose",
-      "search",
-      "search on"
+      "send whatsapp message"
     ],
     "response": [
-      "searching on google",
-      "searching please wait",
-      "getting results from google please wait"
+      "sending"
     ]
   }
 }

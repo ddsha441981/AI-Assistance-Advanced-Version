@@ -15,7 +15,7 @@ def read_json_file():
         return json.load(file)
 
 
-# reading json file
+# # reading json file
 def read_json_files():
     logging.info("Reading configuration file....2")
     with open("config/searchAnything.json") as f:
@@ -31,11 +31,12 @@ if __name__ == '__main__':
 
     logging.info("Jarvis is initializing..............")
     jarvis = Jarvis(logger=logging, config=read_json_file(), os_name=operating_system)
-    # jarvis = Jarvis(logger=logging, config=read_json_files(), os_name=operating_system)
+    # jarvis1 = Jarvis(logger=logging, config=read_json_files(), os_name=operating_system)
 
     app = QApplication(sys.argv)
     gui = GUI()
     jarvis.start()
+    # jarvis1.start()
     gui.start()
 
     app.exit(app.exec_())

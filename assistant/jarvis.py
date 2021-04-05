@@ -1,9 +1,9 @@
 import os
 
 import speech_recognition as sr
-
 from intents.managementsystem import ManagementSystem
 from intents.searchanything import SearchAnything
+from intents.whatsappmsg import WhatsappMessage
 from utils.utils import Utils
 from intents.application_list import Application
 from intents.daily_activity import DailyActivity
@@ -41,7 +41,7 @@ class Jarvis(threading.Thread):
         # displaying the information
         print(devices)
         self.response_speak("Restarting System, Please Turn on Your Internet Connection First........")
-        self.run()
+        # self.run()
 
     def read_voice_input(self):
         with sr.Microphone() as source:
@@ -138,10 +138,19 @@ class Jarvis(threading.Thread):
                               common_activities=common_data).checking_daily_activities()
 
             elif key == 'intent_search_google':
+                online_data = self.config[key]['online_content']
+                print("query ******************************", query)
+                response = Utils.choose_random(self.config[key]['response'])
+                # self.response_speak(response)
+                SearchAnything(logger=self.logger,response=response, command=query,
+                              online_content=online_data).searching_online_content()
+                print(response)
+
+            elif key == 'intent_whatsapp':
                 print("query ******************************", query)
                 response = Utils.choose_random(self.config[key]['response'])
                 self.response_speak(response)
-                SearchAnything(logger=self.logger, command=query).searching_on_google()
+                WhatsappMessage(logger=self.logger, command=query,response=response).opening_whatsapp_msg()
                 print(response)
 
             elif key == 'intent_None':
@@ -164,14 +173,15 @@ class Jarvis(threading.Thread):
                 self.welcome()
 
             except Exception:
-                self.response_speak("NO INTERNET CONNECTION detect - jarvis, needs active internet connection")
-                self.response_speak("Connect to Internet, there are few network connections i found ")
-                self.check_wifi_status()
+                # self.response_speak("NO INTERNET CONNECTION detect - jarvis, needs active internet connection")
+                # self.response_speak("Connect to Internet, there are few network connections i found ")
+                # self.check_wifi_status()
+                pass
 
     def welcome(self):
         self.logger.info('Running thread.........')
         # Checking System First
-        self.checking_system()
+        # self.checking_system()
         while True:
             print("Main Loop")
             query = self.takeCommand()
