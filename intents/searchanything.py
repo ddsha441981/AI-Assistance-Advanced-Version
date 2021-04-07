@@ -43,7 +43,6 @@ class SearchAnything:
     def searching_on_wikipedia(self):
         print("Updating soon......I'm Working on it....")
 
-
     # Response Speak
     def response_speak(self, response):
         self.logger.info(response)
@@ -80,11 +79,16 @@ class SearchAnything:
             if path in 'google':
                 self.response_speak(self.response)
                 self.searching_on_google()
+
             elif path in 'youtube' or path in 'video':
                 self.response_speak(self.response)
                 self.searching_on_youtube()
+
             elif path in 'wikipedia' or path in 'search':
                 self.response_speak(self.response)
                 self.searching_on_wikipedia()
+
+            elif path in 'youtube automation':
+                self.youtubeAuto()
 
         print(str(path))

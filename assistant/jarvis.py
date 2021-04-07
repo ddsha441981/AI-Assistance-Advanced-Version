@@ -1,20 +1,22 @@
-import os
+import datetime
+import subprocess
+import sys
+import threading
+import time
+import urllib
 
 import speech_recognition as sr
+from playsound import playsound
+
+from intents.application_list import Application
+from intents.automateanything import AutomateAnyThing
+from intents.daily_activity import DailyActivity
+from intents.greeting import Greeting
 from intents.managementsystem import ManagementSystem
+from intents.openanything import OpenAnyThing
 from intents.searchanything import SearchAnything
 from intents.whatsappmsg import WhatsappMessage
 from utils.utils import Utils
-from intents.application_list import Application
-from intents.daily_activity import DailyActivity
-from intents.greeting import Greeting
-import threading
-import datetime
-import sys
-import time
-import urllib
-import subprocess
-from playsound import playsound
 
 
 class Jarvis(threading.Thread):
@@ -142,16 +144,34 @@ class Jarvis(threading.Thread):
                 print("query ******************************", query)
                 response = Utils.choose_random(self.config[key]['response'])
                 # self.response_speak(response)
-                SearchAnything(logger=self.logger,response=response, command=query,
-                              online_content=online_data).searching_online_content()
+                SearchAnything(logger=self.logger, response=response, command=query,
+                               online_content=online_data).searching_online_content()
                 print(response)
 
             elif key == 'intent_whatsapp':
                 print("query ******************************", query)
                 response = Utils.choose_random(self.config[key]['response'])
                 self.response_speak(response)
-                WhatsappMessage(logger=self.logger, command=query,response=response).opening_whatsapp_msg()
+                WhatsappMessage(logger=self.logger, command=query, response=response).opening_whatsapp_msg()
                 print(response)
+
+            elif key == 'intent_open_websites':
+                online_web_data = self.config[key]['web_contents']
+                print("query ******************************", query)
+                response = Utils.choose_random(self.config[key]['response'])
+                print(response)
+                OpenAnyThing(logger=self.logger, response=response, command=query,
+                               web_contents=online_web_data).opening_anything_web()
+                print(response)
+
+            elif key == 'intent_automate_tool':
+                automate_data = self.config[key]['automate_tool']
+                print("query ******************************", query)
+                response = Utils.choose_random(self.config[key]['response'])
+                AutomateAnyThing(logger=self.logger, response=response, command=query,
+                               automate_tool=automate_data).opening_automate_data()
+                print(response)
+
 
             elif key == 'intent_None':
                 response = Utils.choose_random(self.config[key]['response'])

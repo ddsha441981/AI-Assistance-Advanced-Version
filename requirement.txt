@@ -1,4 +1,15 @@
 import pyttsx3
 import PyAudio
 import speech_recognition as speech
+import re
+import webbrowser
+import requests
+import whois
+from geopy import Nominatim
+import wikipedia as googleScrap
+import keyboard
+import pyautogui
+import psutil
+import urllib
+from playsound import playsound
 PyQt5

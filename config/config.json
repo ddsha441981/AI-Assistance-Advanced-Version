@@ -174,6 +174,65 @@
       "ok i will"
     ]
   },
+  "intent_open_websites": {
+    "utterances": [
+      "check website",
+      "check ifsc code",
+      "check zip code",
+      "check pin code",
+      "website",
+      "pin code",
+      "ifsc code",
+      "zip code",
+      "check domain"
+    ],
+    "web_contents":{
+      "website": "website",
+      "ifsc code": "ifsc code",
+      "zip code": "zip code",
+      "pin code": "pin code",
+      "domain": "domain"
+    },
+    "response": [
+      "loading data from server",
+      "searching please wait",
+      "getting results from server please wait"
+    ]
+  },
+  "intent_automate_tool": {
+    "utterances": [
+      "automate youtube",
+      "automate chrome",
+      "volume up",
+      "volume down",
+      "volume",
+      "volumeup",
+      "volumedown",
+      "volumemute",
+      "up",
+      "down",
+      "mute",
+      "pause"
+    ],
+    "automate_tool":{
+      "youtube": "youtube",
+      "chrome": "chrome",
+      "volumeup": "volumeup",
+      "volume up": "volume up",
+      "volume down": "volume down",
+      "volume mute": "volume mute",
+      "volumedown": "volumedown",
+      "volumemute": "volumemute",
+      "up": "down",
+      "down": "up",
+      "mute": "mute",
+      "pause": "pause"
+    },
+    "response": [
+      "auto mode activated",
+      "auto mode activating please wait"
+    ]
+  },
   "intent_None" : {
     "utterances": [
       "none",
