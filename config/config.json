@@ -98,14 +98,18 @@
       "remaining battery",
       "total cpu",
       "check cpu",
-      "cpu"
+      "cpu",
+      "manage files",
+      "manage data"
     ],
     "systemize":{
       "shutdown": "shutdown",
       "restart": "restart",
       "sleep": "sleep",
       "cpu": "cpu",
-      "battery": "battery"
+      "battery": "battery",
+      "manage files": "manage files",
+      "data manage": "manage data"
     },
     "response": [
       "processing",
@@ -232,6 +236,35 @@
     "response": [
       "auto mode activated",
       "auto mode activating please wait"
+    ]
+  },
+  "intent_check_prices": {
+    "utterances": [
+      "check",
+      "bitcoin prices",
+      "petrol prices",
+      "diesel prices",
+      "sliver prices",
+      "gold prices",
+      "cng prices",
+      "lpg prices",
+      "stock prices"
+    ],
+    "prices_online":{
+      "bitcoin": "bitcoin",
+      "petrol": "petrol",
+      "diesel": "diesel",
+      "sliver": "sliver",
+      "gold": "gold",
+      "cng": "cng",
+      "lpg": "lpg",
+      "stock": "stock"
+    },
+    "response": [
+      "getting data from the website please wait",
+      "getting data from the server please wait",
+      "getting data from the google please wait",
+      "scraping data from the server please wait"
     ]
   },
   "intent_None" : {

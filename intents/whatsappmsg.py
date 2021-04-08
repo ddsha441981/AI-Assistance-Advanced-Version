@@ -7,14 +7,13 @@ __copyright__ = ""
 __license__ = ""
 __status__ = ""
 
-import webbrowser
 import time
-import keyword
+import webbrowser
 
 import keyboard
 
-from utils.utils import Utils
 from utils.speech_recognizes import AgainTakeCommand
+from utils.utils import Utils
 
 
 class WhatsappMessage:
@@ -24,7 +23,7 @@ class WhatsappMessage:
         self.response = response
         self.utils = Utils(self.logger)
 
-    def whatsapp(self,number,msg):
+    def whatsapp(self, number, msg):
         try:
             numb = "+91" + number
             mess = msg
@@ -37,7 +36,7 @@ class WhatsappMessage:
 
     def opening_whatsapp_msg(self):
         print(self.command)
-        query = self.command.split("send whatsapp message")[1].strip()
+        self.command.split("send whatsapp message")[1].strip()
         self.utils.playspeak("Please Provide Mobile Number....")
         number = str(input("Here..........."))
 
@@ -45,4 +44,4 @@ class WhatsappMessage:
         msg = AgainTakeCommand.newCommand(self).lower()
 
         self.logger.info(msg)
-        self.whatsapp(number,msg)
+        self.whatsapp(number, msg)

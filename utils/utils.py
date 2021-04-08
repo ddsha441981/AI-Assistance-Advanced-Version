@@ -37,7 +37,8 @@ class Utils:
             compile = re.compile(normalized)
             return compile.search(voice_input)
         except Exception as e:
-            print(e)
+            # self.logger.info(e)
+            pass
 
 
     @staticmethod

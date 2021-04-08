@@ -177,20 +177,23 @@ import pywhatkit as kit
 #     wik = wikipedia.summary(wikitopic, sentences = 3)
 #     print(wik ,"\n")
 # infowiki("who is the prime minister of india ")
-import webbrowser
-import keyboard
-import time
-def whatsapp(number, msg):
-    numb = "+91" + number
-    print(numb ,"++++++++++++++++++++++++")
-    mess = msg
+# import webbrowser
+# import keyboard
+# import time
+# def whatsapp(number, msg):
+#     numb = "+91" + number
+#     print(numb ,"++++++++++++++++++++++++")
+#     mess = msg
+#
+#     print('https://web.whatsapp.com/send?phone=' + numb + '&text=' + mess)
+#     open_chat = 'https://web.whatsapp.com/send?phone=' + numb + '&text=' + mess
+#     print(open_chat)
+#     webbrowser.open(open_chat)
+#     time.sleep(15)
+#     keyboard.press("enter")
+#
+# whatsapp("9680834905","hello")
+import os
 
-    print('https://web.whatsapp.com/send?phone=' + numb + '&text=' + mess)
-    open_chat = 'https://web.whatsapp.com/send?phone=' + numb + '&text=' + mess
-    print(open_chat)
-    webbrowser.open(open_chat)
-    time.sleep(15)
-    keyboard.press("enter")
-    
-whatsapp("9680834905","hello")
+os.system('main.cpl')
 

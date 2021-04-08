@@ -19,6 +19,7 @@ from playsound import playsound
 
 from intents.application_list import Application
 from intents.automateanything import AutomateAnyThing
+from intents.checkprices import CheckingPrices
 from intents.daily_activity import DailyActivity
 from intents.greeting import Greeting
 from intents.managementsystem import ManagementSystem
@@ -179,6 +180,14 @@ class Jarvis(threading.Thread):
                 response = Utils.choose_random(self.config[key]['response'])
                 AutomateAnyThing(logger=self.logger, response=response, command=query,
                                automate_tool=automate_data).opening_automate_data()
+                print(response)
+
+            elif key == 'intent_check_prices':
+                checkprice_data = self.config[key]['prices_online']
+                print("query ******************************", query)
+                response = Utils.choose_random(self.config[key]['response'])
+                CheckingPrices(logger=self.logger, response=response, command=query,
+                               prices_online=checkprice_data).checking_online_prices()
                 print(response)
 
 
