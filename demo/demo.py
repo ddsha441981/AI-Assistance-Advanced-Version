@@ -170,5 +170,27 @@ __status__ = ""
 # print(devices)
 
 import pywhatkit as kit
+# import wikipedia
+# # kit.playonyt("superhero")
+# def infowiki(wikitopic):
+#     '''Gives information on the topic'''
+#     wik = wikipedia.summary(wikitopic, sentences = 3)
+#     print(wik ,"\n")
+# infowiki("who is the prime minister of india ")
+import webbrowser
+import keyboard
+import time
+def whatsapp(number, msg):
+    numb = "+91" + number
+    print(numb ,"++++++++++++++++++++++++")
+    mess = msg
 
-kit.playonyt("superhero")
+    print('https://web.whatsapp.com/send?phone=' + numb + '&text=' + mess)
+    open_chat = 'https://web.whatsapp.com/send?phone=' + numb + '&text=' + mess
+    print(open_chat)
+    webbrowser.open(open_chat)
+    time.sleep(15)
+    keyboard.press("enter")
+    
+whatsapp("9680834905","hello")
+

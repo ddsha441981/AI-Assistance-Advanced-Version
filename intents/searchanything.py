@@ -11,6 +11,7 @@ import webbrowser
 import requests
 from utils.utils import Utils
 import wikipedia as googleScrap
+import wikipedia
 
 
 class SearchAnything:
@@ -27,8 +28,9 @@ class SearchAnything:
             webbrowser.open("https://www.google.com/search?q={}".format(searchQuery))
             result = googleScrap.summary(searchQuery,2)
             self.response_speak(result)
-        except Exception:
+        except Exception as e:
             self.response_speak("No Speakable Data found............")
+            self.logger.error(e)
 
     def searching_on_youtube(self):
         topic = self.command.split("play youtube video")[1].strip()
@@ -50,7 +52,13 @@ class SearchAnything:
         return "https://www.youtube.com" + lst[count - 5]
 
     def searching_on_wikipedia(self):
-        print("Updating soon......I'm Working on it....")
+        try:
+            wikitext = self.command.split("search wikipedia")[1].strip()
+            wiktext = wikipedia.summary(wikitext, sentences=3)
+            self.response_speak("According to wikipedia!!!")
+            self.response_speak(wiktext)
+        except Exception as ex:
+            self.logger.error(ex)
 
     # Response Speak
     def response_speak(self, response):
@@ -73,9 +81,9 @@ class SearchAnything:
                         return self.online_content[onlinedata]
 
         except IndexError as e:
-            print(e)
-        except Exception:
-            pass
+           self.logger.error(e)
+        except Exception as ee:
+            self.logger.error(ee)
 
     def searching_online_content(self):
         path = self.get_path_online()
