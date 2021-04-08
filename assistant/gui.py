@@ -1,3 +1,12 @@
+__author__ = "Deendayal Kumawat"
+__version__ = "1.0.1"
+__maintainer__ = "Deendayal Kumawat"
+__email__ = "codewithcup.developer@gmail.com"
+__credits__ = [""]
+__copyright__ = ""
+__license__ = ""
+__status__ = ""
+
 import threading
 from PyQt5.QtWidgets import QWidget, QLabel, QGraphicsDropShadowEffect
 from PyQt5.QtGui import QMovie
@@ -14,7 +23,7 @@ class GUI(threading.Thread, QWidget):
         # self.setStyleSheet('background-color:#000000')
         self.label_animation = QLabel(self)
 
-        self.movie = QMovie("jarvis_new.gif")
+        self.movie = QMovie("jarvisgif")
         self.label_animation.setMovie(self.movie)
 
         self.time = QLabel(self)

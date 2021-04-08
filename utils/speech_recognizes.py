@@ -1,3 +1,12 @@
+__author__ = "Deendayal Kumawat"
+__version__ = "1.0.1"
+__maintainer__ = "Deendayal Kumawat"
+__email__ = "codewithcup.developer@gmail.com"
+__credits__ = [""]
+__copyright__ = ""
+__license__ = ""
+__status__ = ""
+
 import speech_recognition as speech
 import pyttsx3
 
