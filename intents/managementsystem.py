@@ -11,7 +11,10 @@ import os
 import psutil
 import sys
 import shutil
+import pyautogui
+import time
 from utils.utils import Utils
+from utils.speech_recognizes import AgainTakeCommand
 
 
 class ManagementSystem:
@@ -27,6 +30,15 @@ class ManagementSystem:
     def response_speak(self, response):
         self.logger.info(response)
         self.utils.playspeak(response)  # Speak method
+
+    def taking_screenshot_now(self):
+        self.response_speak('Sir, Tell me the name for this screenshot file')
+        screenshotFile = AgainTakeCommand.newCommand(self).lower()
+        self.response_speak('Sir, Please hold the screen for few seconds.., I am taking screenshot')
+        time.sleep(5)
+        img = pyautogui.screenshot()
+        img.save(f'{screenshotFile}.png')
+        self.response_speak('Sir,i am done , the screenshot saved in main folder. now i am ready for next command')
 
     def shutdown(self, time=20):
         print("inside shutdown ")
@@ -178,6 +190,9 @@ class ManagementSystem:
 
             elif path in 'battery':
                 self.battery_power()
+
+            elif path in 'take screenshot' or path in "screenshot":
+                self.taking_screenshot_now()
 
             elif path in 'cpu':
                 self.cpu_usage()

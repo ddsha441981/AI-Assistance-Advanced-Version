@@ -100,7 +100,8 @@
       "check cpu",
       "cpu",
       "manage files",
-      "manage data"
+      "manage data",
+      "take screenshot"
     ],
     "systemize":{
       "shutdown": "shutdown",
@@ -109,7 +110,8 @@
       "cpu": "cpu",
       "battery": "battery",
       "manage files": "manage files",
-      "data manage": "manage data"
+      "data manage": "manage data",
+      "take screenshot": "take screenshot"
     },
     "response": [
       "processing",
